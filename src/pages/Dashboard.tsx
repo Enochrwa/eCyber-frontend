@@ -312,6 +312,7 @@ const Dashboard = () => {
       setErrorUserSummary(null);
       try {
         const response = await fetch('https://ecyber-backend.onrender.com/api/v1/users');
+        // const response = await fetch('https://ecyber-backend.onrender.com/api/v1/users');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -352,7 +353,7 @@ const Dashboard = () => {
       setIsLoadingUsersList(true);
       setErrorUsersList(null);
       try {
-        const response = await fetch('/api/v1/users/'); // Assuming this is the correct endpoint from v1 router
+        const response = await fetch('https://ecyber-backend.onrender.com/api/v1/users/'); // Assuming this is the correct endpoint from v1 router
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
