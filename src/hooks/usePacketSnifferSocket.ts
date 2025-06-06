@@ -646,7 +646,7 @@ export default function usePacketSniffer(): UseSocketReturn {
     
     userManuallyDisconnected.current = false; // Reset manual disconnect flag on new connect attempt
 
-    const newSocket = io('http://127.0.0.1:8000/packet_sniffer', {
+    const newSocket = io('https://ecyber-backend.onrender.com/packet_sniffer', {
       path: '/socket.io',
       transports: ['websocket'],
       reconnection: false, // Disable built-in reconnection
