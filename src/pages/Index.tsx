@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Shield, Terminal, AlertTriangle, Activity, Zap, Eye, Lock, Cpu, Globe, Server, Wifi, Target, Crosshair, Radar, Satellite, Skull, Brain, Binary, CircuitBoard, Usb, FileX, Flame, Bug, Database, Network, Radio, Signal, Camera, Headphones } from 'lucide-react';
+import { Shield, Terminal, AlertTriangle, Activity, Zap, Eye, Lock, Cpu, Globe, Server, Wifi, Target, Crosshair, Radar, Satellite, Skull, Brain, Binary, CircuitBoard, Usb, FileX, Flame, Bug, Database, Network, Radio, Signal, Camera, Headphones, Play } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RootState } from "@/app/store";
 import { setAuthModalState } from "@/app/slices/displaySlice"
 import { useSelector, useDispatch } from "react-redux"
 import AuthModal from './AuthModal';
+import DemoVideo from '@/utils/DemoVideo';
 
 const Index = () => {
 
@@ -17,6 +18,7 @@ const Index = () => {
   const [systemStatus, setSystemStatus] = useState('SCANNING');
   const [activeThreats, setActiveThreats] = useState([]);
   const [glitchText, setGlitchText] = useState('CYBER WARFARE DEFENSE');
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [networkNodes, setNetworkNodes] = useState([]);
   const [alerts, setAlerts] = useState([]);
   const [scanProgress, setScanProgress] = useState(0);
@@ -352,7 +354,8 @@ const Index = () => {
           >
             GET IN
           </motion.button>
-          <motion.button
+            <motion.button
+            onClick={() => setIsVideoOpen(true)}
             whileHover={{ 
               scale: 1.1, 
               boxShadow: '0 0 50px rgba(34,211,238,1)',
@@ -361,7 +364,9 @@ const Index = () => {
             whileTap={{ scale: 0.9 }}
             className="px-8 py-3 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-700 text-black font-bold hover:from-cyan-400 hover:to-purple-600 transition-all duration-300 tracking-widest"
           >
-            Get A Demo👍
+            <span className="flex items-center">
+              <Play className="mr-2" size={20} />
+              WATCH DEMO</span>
           </motion.button>
         </div>
       </motion.header>
@@ -777,7 +782,8 @@ const Index = () => {
 
      
       </div>
-      <AuthModal/>
+      <AuthModal />
+      <DemoVideo isVideoOpen={isVideoOpen} setIsVideoOpen={setIsVideoOpen}/>
       </>
   );
 };

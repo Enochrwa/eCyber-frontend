@@ -39,6 +39,7 @@ import RegisterPage from "./pages/Register";
 import CyberLoader from "./utils/Loader"
 import AuthModal from "./pages/AuthModal";
 import LoadingSpinner from "./utils/LoadingSpinner";
+import DemoVideo from "./utils/DemoVideo";
 import { useSelector } from "react-redux"
 import { RootState } from "@/app/store"
 
@@ -133,7 +134,8 @@ const App = () => {
         <Routes>
         {/* Public route without sidebar */}
           <Route path="/" element={<Index />} /> {/* Index page, handles showing AuthModal via button clicks */}
-          <Route path="/loading" element={<CyberLoader />} />
+        <Route path="/loading" element={<CyberLoader />} />
+  
           {/* Removed top-level /login route that pointed to AuthModal */}
           {/* Routes with sidebar, potentially protected by MainLayout */}
           <Route element={<MainLayout />}>
