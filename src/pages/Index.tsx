@@ -6,6 +6,7 @@ import { setAuthModalState } from "@/app/slices/displaySlice"
 import { useSelector, useDispatch } from "react-redux"
 import AuthModal from './AuthModal';
 import DemoVideo from "../utils/DemoVideo"
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const dispatch = useDispatch();
@@ -310,10 +311,10 @@ const Index = () => {
           </motion.div>
 
           <nav className="space-x-2 sm:space-x-4 md:space-x-6 text-xs sm:text-sm mb-4 sm:mb-0">
-            {['THREATS', 'NETWORK', 'SHIELD', 'DASHBOARD'].map((item, i) => (
-              <motion.a
+            {['THREATS', 'NETWORK', 'DASHBOARD'].map((item, i) => (
+              <Link
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                to={`/${item.toLowerCase()}`}
                 className="relative group cursor-pointer inline-block mx-1"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: -20 }}
@@ -323,7 +324,7 @@ const Index = () => {
                 <span className="text-cyan-300 hover:text-blue-400 transition-colors font-medium">
                   {item}
                 </span>
-              </motion.a>
+              </Link>
             ))}
           </nav>
 
