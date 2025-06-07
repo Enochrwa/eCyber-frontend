@@ -119,9 +119,9 @@ const App = () => {
   //   );
   // }
 
-  if(!isReady) {
-    return <CyberLoader isLoading={isReady} />
-  }
+  // if(!isReady || !isBackendUp) {
+  //   return <CyberLoader isLoading={isReady || isBackendUp} />
+  // }
 
   
 
